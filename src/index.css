@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sportify Design System - India-themed athletic talent discovery platform
+All colors MUST be HSL and follow Indian flag inspired palette
+*/
+
+@layer base {
+  :root {
+    /* India Flag Inspired Color Palette */
+    --saffron: 28 100% 60%;          /* #FF9933 - Primary saffron */
+    --saffron-light: 28 100% 80%;    /* Lighter saffron for highlights */
+    --saffron-dark: 28 100% 40%;     /* Darker saffron for depth */
+    
+    --india-green: 120 88% 28%;      /* #128807 - Primary green */
+    --india-green-light: 120 88% 48%; /* Lighter green */
+    --india-green-dark: 120 88% 18%; /* Darker green */
+    
+    --india-blue: 217 100% 31%;      /* #0033A0 - Deep blue accent */
+    --india-blue-light: 217 100% 51%; /* Lighter blue */
+    
+    --neutral-white: 0 0% 100%;       /* Pure white */
+    --neutral-gray: 210 10% 96%;      /* Light gray */
+    --neutral-dark: 210 20% 15%;      /* Dark text */
+
+    /* Gradients */
+    --gradient-saffron: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--saffron-light)));
+    --gradient-india: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--neutral-white)), hsl(var(--india-green)));
+    --gradient-athletic: linear-gradient(135deg, hsl(var(--india-blue)), hsl(var(--saffron)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--neutral-gray)), hsl(var(--neutral-white)));
+
+    /* Shadows */
+    --shadow-saffron: 0 10px 30px -10px hsl(var(--saffron) / 0.3);
+    --shadow-green: 0 10px 30px -10px hsl(var(--india-green) / 0.3);
+    --shadow-athletic: 0 20px 40px -10px hsl(var(--india-blue) / 0.4);
+    --shadow-glow: 0 0 40px hsl(var(--saffron) / 0.2);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Semantic Design Tokens */
+    --background: var(--neutral-white);
+    --foreground: var(--neutral-dark);
+
+    --card: var(--neutral-white);
+    --card-foreground: var(--neutral-dark);
+
+    --popover: var(--neutral-white);
+    --popover-foreground: var(--neutral-dark);
+
+    --primary: var(--saffron);
+    --primary-foreground: var(--neutral-white);
+
+    --secondary: var(--india-green);
+    --secondary-foreground: var(--neutral-white);
+
+    --muted: var(--neutral-gray);
+    --muted-foreground: 210 15% 55%;
+
+    --accent: var(--india-blue);
+    --accent-foreground: var(--neutral-white);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--neutral-white);
+
+    --border: 210 15% 90%;
+    --input: 210 15% 96%;
+    --ring: var(--saffron);
+
+    --radius: 0.75rem;
+
+    /* Athletic Theme Specific */
+    --athletic-primary: var(--saffron);
+    --athletic-secondary: var(--india-green);
+    --athletic-accent: var(--india-blue);
+    --athletic-success: var(--india-green);
+    --athletic-warning: var(--saffron);
+  }
+
+  .dark {
+    --background: var(--neutral-dark);
+    --foreground: var(--neutral-white);
+
+    --card: 210 20% 18%;
+    --card-foreground: var(--neutral-white);
+
+    --popover: 210 20% 18%;
+    --popover-foreground: var(--neutral-white);
+
+    --primary: var(--saffron-light);
+    --primary-foreground: var(--neutral-dark);
+
+    --secondary: var(--india-green-light);
+    --secondary-foreground: var(--neutral-dark);
+
+    --muted: 210 20% 25%;
+    --muted-foreground: 210 15% 70%;
+
+    --accent: var(--india-blue-light);
+    --accent-foreground: var(--neutral-white);
+
+    --border: 210 20% 25%;
+    --input: 210 20% 25%;
+    --ring: var(--saffron-light);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-[var(--transition-smooth)];
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Hind', 'Noto Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Athletic Theme Typography */
+  .text-athletic-xl {
+    @apply text-6xl font-bold tracking-tight;
+  }
+  
+  .text-athletic-lg {
+    @apply text-4xl font-semibold tracking-tight;
+  }
+  
+  .text-athletic-md {
+    @apply text-2xl font-medium;
+  }
+
+  /* India-themed animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-bounce-athletic {
+    animation: bounce-athletic 1s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--saffron) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--saffron) / 0.6); }
+}
+
+@keyframes bounce-athletic {
+  0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+

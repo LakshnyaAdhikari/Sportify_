@@ -1,0 +1,52 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // User video uploads
+    match /videos/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == userId;
+      
+      // File size limit: 50MB for videos
+      allow write: if request.resource.size < 50 * 1024 * 1024;
+      
+      // Only allow video files
+      allow write: if request.resource.contentType.matches('video/.*') ||
+        request.resource.contentType.matches('image/.*');
+    }
+    
+    // Profile pictures
+    match /profiles/{userId}/{fileName} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == userId;
+      
+      // File size limit: 5MB for images
+      allow write: if request.resource.size < 5 * 1024 * 1024;
+      
+      // Only allow image files
+      allow write: if request.resource.contentType.matches('image/.*');
+    }
+    
+    // Admin uploads (certificates, announcements, etc.)
+    match /admin/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+    
+    // Public assets (exercise guides, tutorials)
+    match /public/{allPaths=**} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+    
+    // Wearable data exports
+    match /exports/{userId}/{fileName} {
+      allow read: if request.auth != null && 
+        (request.auth.uid == userId || 
+         request.auth.token.role == 'admin');
+      allow write: if false; // Only cloud functions can write
+    }
+  }
+}

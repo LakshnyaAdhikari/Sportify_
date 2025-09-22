@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users can read and write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // User results subcollection
+      match /results/{resultId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // User badges subcollection
+      match /badges/{badgeId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // User wearable data subcollection
+      match /wearableData/{dataId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // Tests collection - read-only for all authenticated users
+    match /tests/{testId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+    
+    // Leaderboards - read-only for authenticated users
+    match /leaderboard/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only cloud functions can write
+    }
+    
+    // Admin collections - restricted to admin role
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+    
+    // Wearable devices collection
+    match /wearables/{deviceId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        (request.auth.token.role == 'admin' || 
+         resource.data.userId == request.auth.uid);
+    }
+    
+    // District aggregations - read-only
+    match /districts/{districtId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only cloud functions can write
+    }
+    
+    // SAI centers data
+    match /saiCenters/{centerId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+    
+    // Public announcements and news
+    match /announcements/{announcementId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        request.auth.token.role == 'admin';
+    }
+  }
+}
