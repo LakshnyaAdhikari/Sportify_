@@ -8,13 +8,13 @@ Sportify is a comprehensive athletic talent discovery ecosystem that leverages c
 
 ### 🌟 Key Features
 
-- **🤖 AI-Powered Pose Analysis**: Real-time pose detection using MediaPipe and custom ML models
-- **📱 Mobile-First Design**: Cross-platform React application optimized for mobile devices
-- **🏅 Gamified Experience**: Leaderboards, badges, and competitive elements to drive engagement
-- **🗺️ District-Level Competition**: Hyper-local competitions from district to national level
-- **👥 Admin Dashboard**: SAI officials can identify and shortlist talent with heatmap visualization
-- **🔄 Offline-First**: Sync capabilities for areas with limited connectivity
-- **🏃‍♀️ Multi-Sport Support**: Extendable framework supporting various athletic disciplines
+- ** AI-Powered Pose Analysis**: Real-time pose detection using MediaPipe and custom ML models
+- ** Mobile-First Design**: Cross-platform React application optimized for mobile devices
+- ** Gamified Experience**: Leaderboards, badges, and competitive elements to drive engagement
+- ** District-Level Competition**: Hyper-local competitions from district to national level
+- ** Admin Dashboard**: SAI officials can identify and shortlist talent with heatmap visualization
+- ** Offline-First**: Sync capabilities for areas with limited connectivity
+- ** Multi-Sport Support**: Extendable framework supporting various athletic disciplines
 
 ## 🛠️ Technology Stack
 
@@ -298,7 +298,7 @@ This project is developed for educational and demonstration purposes. All rights
 
 <div align="center">
 
-**🏆 Built with passion for Indian athletics 🇮🇳**
+** Built with passion for Indian athletics 🇮🇳**
 
 *Empowering the next generation of champions through technology*
 
