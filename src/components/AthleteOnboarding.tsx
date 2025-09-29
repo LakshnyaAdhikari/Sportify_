@@ -223,13 +223,46 @@ const AthleteOnboarding = ({ onComplete }: AthleteOnboardingProps) => {
                       <SelectValue placeholder="राज्य चुनें" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="UP">उत्तर प्रदेश</SelectItem>
-                      <SelectItem value="MH">महाराष्ट्र</SelectItem>
-                      <SelectItem value="RJ">राजस्थान</SelectItem>
-                      <SelectItem value="KA">कर्नाटक</SelectItem>
-                      <SelectItem value="TN">तमिलनाडु</SelectItem>
-                      <SelectItem value="DL">दिल्ली</SelectItem>
-                    </SelectContent>
+  <SelectItem value="UP">उत्तर प्रदेश</SelectItem>
+  <SelectItem value="MH">महाराष्ट्र</SelectItem>
+  <SelectItem value="RJ">राजस्थान</SelectItem>
+  <SelectItem value="KA">कर्नाटक</SelectItem>
+  <SelectItem value="TN">तमिलनाडु</SelectItem>
+  <SelectItem value="DL">दिल्ली</SelectItem>
+  <SelectItem value="AP">आंध्र प्रदेश</SelectItem>
+  <SelectItem value="AR">अरुणाचल प्रदेश</SelectItem>
+  <SelectItem value="AS">असम</SelectItem>
+  <SelectItem value="BR">बिहार</SelectItem>
+  <SelectItem value="CG">छत्तीसगढ़</SelectItem>
+  <SelectItem value="GA">गोवा</SelectItem>
+  <SelectItem value="GJ">गुजरात</SelectItem>
+  <SelectItem value="HR">हरियाणा</SelectItem>
+  <SelectItem value="HP">हिमाचल प्रदेश</SelectItem>
+  <SelectItem value="JH">झारखंड</SelectItem>
+  <SelectItem value="KA">कर्नाटका</SelectItem>
+  <SelectItem value="KL">केरल</SelectItem>
+  <SelectItem value="MP">मध्य प्रदेश</SelectItem>
+  <SelectItem value="MH">महाराष्ट्र</SelectItem>
+  <SelectItem value="MN">मणिपुर</SelectItem>
+  <SelectItem value="ML">मेघालय</SelectItem>
+  <SelectItem value="MZ">मिजोरम</SelectItem>
+  <SelectItem value="NL">नगालैंड</SelectItem>
+  <SelectItem value="OD">ओडिशा</SelectItem>
+  <SelectItem value="PB">पंजाब</SelectItem>
+  <SelectItem value="RJ">राजस्थान</SelectItem>
+  <SelectItem value="SK">सिक्किम</SelectItem>
+  <SelectItem value="TN">तमिलनाडु</SelectItem>
+  <SelectItem value="TS">तेलंगाना</SelectItem>
+  <SelectItem value="UP">उत्तर प्रदेश</SelectItem>
+  <SelectItem value="WB">पश्चिम बंगाल</SelectItem>
+  <SelectItem value="J&K">जम्मू और कश्मीर</SelectItem>
+  <SelectItem value="LD">लक्षद्वीप</SelectItem>
+  <SelectItem value="AN">अंडमान और निकोबार द्वीपसमूह</SelectItem>
+  <SelectItem value="CH">चंडीगढ़</SelectItem>
+  <SelectItem value="DNH">दादरा और नगर हवेली और दमन और दीव</SelectItem>
+  <SelectItem value="DL">दिल्ली</SelectItem>
+  <SelectItem value="PY">पुदुचेरी</SelectItem>
+</SelectContent>
                   </Select>
                 </div>
               </div>
